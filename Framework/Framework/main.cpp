@@ -1,13 +1,77 @@
-// ** Framework v0.1
+// ** Framework v0.2
 
-#include <iostream>
+#include "Parent.h"
+#include "Child.h"
+#include "Bullet.h"
 
-using namespace std;
+const int ID_Child = 0;
+const int ID_Bullet = 1;
+
+
+int main(void)
+{
+	Parent* p[2];
+		
+	p[ID_Child] = new Child;
+	p[ID_Bullet] = new Bullet;
+
+	for (int  i = 0; i < 2; ++i)
+	{
+		p[i]->Initialize();
+		
+	}
+
+	while (true)
+	{
+		system("cls");
+
+	}
+	
+	
+
+	/*
+	// new Child 해도 기본적인 베이스는 부모클래스인 Parent 이다.
+	Parent* p = new Child;
+
+	p->Initialize();
+	p->Output();
+
+	// 자식껄 쓸려면 형변환을 하여야 한다.
+	//((Child*)p)->Initialize();
+	//((Child*)p)->Output();
+
+	// 또는 부모클래스 헤더의 함수에 virtual을 붙인다.
+
+	*/
+
+	/*
+	Parent p; // 추상클래스는 개체화 시킬수 없어서 인스턴스화 못함.
+
+	p.Initialize();
+	p.Output();
+	*/ 
+	
+	
+	
+	return 0;
+
+}
+
+
+
+
+
 
 // ** 1. 정보은닉
 /*
+private:
+	// ** 자기 자신만 사용 사능
 
-	public, private, protecte 어쩌구 ...
+protected:
+	// ** 상속간의 공개된 상태, 비상속 클래스 사용불가, 외부 사용 불가
+
+public:
+	// ** 공개된 상태
 */
 
 // ** 2. 갭슐화
@@ -17,6 +81,8 @@ using namespace std;
 
 	내 숨쉬기 기능은 나만 쓸 수 있다.
 	각각의 함수가 따로 있어야 한다.
+
+	** 데이터(변수)와 기능(함수, 메서드)을 묶음으로 사용하는 것. 
 */
 
 // ** 3. 추상화
@@ -28,6 +94,11 @@ using namespace std;
 	학생으로 존재할 수 있고 직원으로 존재할 수 있고 선생으로 있을 수도있고 
 	다양한 형태로 있을 수 있다.
 
+	// ** 존재하지 않는 형태를 추상클래스 라고 한.
+	// ** 예) 사람, 학생, 군인 등의 대상이 특정되지 않는 경우
+	// ** 예) "홍길동은 학생이다." 라면 홍길동이라는 특정 대상이 있으므로,
+				추상적 형태로 볼 수 없음.
+
 */
 
 // ** 4. 상속
@@ -38,13 +109,69 @@ using namespace std;
 	protecte : 가족 끼리 사용 하는 화장실
 	private : 나만 사용 하는 것
 
+	/*
+	class AAA
+{
+protected:
+	string m_str;
+
+public:
+		void Output() { cout << m_str << endl; }
+};
+
+class BBB :public AAA
+{
+
+public:
+	void Initialize() { m_str = "BBB"; }
+};
+
+class CCC :public AAA
+{
+
+public:
+	void Initialize() { m_str = "CCC"; }
+};
+
+int main(void)
+{
+	AAA a;
+	a.Output();
+
+	BBB b;
+	b.Initialize();
+	b.Output();
+
+	CCC c;
+	c.Initialize();
+	c.Output();
+
+
+return 0;
+
+}
 */
+
 
 // ** 5. 다형성
 /*
 	누가 될 수 있는 지는 모르지만 학생인데 검은 마스크일 수도 있고, 흰 마스크 일수도있고, 슬리퍼를
 	신고 있을 수 도 있고  결국 학생이라는 카테고리에 들어가는 다형성
+	// ** 다양한 형태로 존재할 수 있다.
 */
+
+// ** 6. namespace
+/*
+	별도의 영역을 지정하여 동일한 이름의 함수를 사용할 수 있도록 함.
+
+*/
+
+// ** 7. 생성자 & 소멸자 & 복사 생성자
+
+// ** 8. 깊은복사 & 얕은복사
+// ** 9. 오버로딩 & 오버라이딩
+// ** 10. 연산자 오버로딩
+// ** 11. 포인터 (복습)
 
 // ** 객체(Object)
 /*
@@ -65,9 +192,11 @@ using namespace std;
 */
 
 
+#pragma region Framework v0.1
+/*
+
 struct AAA // 구조체
 {
-
 	int Number;
 };
 
@@ -130,3 +259,64 @@ void Initialize(int& _Number)
 {
 	_Number = 0;
 }
+*/
+#pragma endregion
+
+#pragma region Framework v0.2
+
+/*
+namespace AAA
+{
+	void Output()
+	{
+		cout << "홍길동" << endl;
+	}
+}
+
+using namespace AAA; // using 써준걸로 처 줘
+using AAA::Output; // 이렇게 사용 할 수 있다.
+
+namespace BBB
+{
+	void Output()
+	{
+		cout << "임꺽정" << endl;
+	}
+}
+
+// using namespace BBB;
+
+
+class Parent
+{
+private:
+	// ** 자기 자신만 사용 사능
+
+protected:
+	// ** 상속간의 공개된 상태, 비상속 클래스 사용불가, 외부 사용 불가
+
+public:
+	// ** 공개된 상태
+	int m_Number;
+
+};
+
+class Child : public Parent
+{
+
+
+};
+
+int main(void)
+{
+	Output();
+
+	BBB::Output();
+
+	return 0;
+}
+*/
+
+#pragma endregion
+
+
