@@ -1,65 +1,156 @@
-// ** Framework v0.2
+// ** Framework v0.3
 
 #include "Parent.h"
 #include "Child.h"
 #include "Bullet.h"
 
-const int ID_Child = 0;
-const int ID_Bullet = 1;
 
+/*
+
+struct tagInfo
+{
+	int Number;
+};
+
+class Object
+{
+protected:
+	tagInfo m_Info;
+private:
+
+public:
+	int Number;
+	char* Name;
+
+public:
+	virtual Object* Clone() = 0;
+	
+
+
+public:
+	// ** 사용자가 호출 하지 않아도 스스로 호출됨
+	// ** 클래스가 생성된 직후 호출
+	Object()
+	{
+		cout << "생성자" << endl;
+	};
+
+
+	// ** 사용자가 호출하는 시점에 호출됨
+	// ** 언제든지 호출이 된다. 
+	// ** 전달값의 개수와 자료형에 따라서 선택적(자동)으로 호출됨
+	Object(int _Number)
+	{
+		cout << "복사 생성자 : int" << endl;
+		Number = _Number;
+	};
+
+	Object(float _Number)
+	{
+		cout << "복사 생성자 : float" << endl;
+		Number = (int)_Number;
+	};
+
+	Object(char* _Name)
+	{
+		Name = _Name;
+	};
+
+	// ** 클래스가 삭제되기 직전
+	~Object()
+	{
+		cout << "소멸자" << endl;
+	};
+
+	
+	Object(const Object& _obj)
+	{
+		cout << "복사 생성자 : float" << endl;
+
+	};
+
+
+	Object(Object* _obj)
+	{
+	Name = _obj->Name;
+
+	};
+
+	Object(tagInfo _Info) : m_Info(_Info)
+	{
+
+	};
+};
+
+class Player : public Object
+{
+public:
+	virtual Object* Clone() override
+	{
+		return new Player(*this);
+	}
+
+	void Output()
+	{
+		cout << m_Info.Number << endl;
+	}
+
+public:
+	Player() {};
+	Player(tagInfo _Info) : Object(_Info) {  };
+	~Player() {};
+};
+
+Object* GetObject(string _key;
 
 int main(void)
 {
-	Parent* p[2];
-		
-	p[ID_Child] = new Child;
-	p[ID_Bullet] = new Bullet;
+	/*
+	tagInfo Info;
+	
+	AAA a[8];
 
-	for (int  i = 0; i < 2; ++i)
+	for (int i = 0; i < 8; ++i)
 	{
-		p[i]->Initialize();
-		
+		Info.Number = 10;
+		a[i] = AAA(Info);
 	}
 
-	while (true)
+	for (int i = 0; i < 8; ++i)
 	{
-		system("cls");
-
+		a[i].Output();
 	}
 	
 	
+	tagInfo Info;
 
-	/*
-	// new Child 해도 기본적인 베이스는 부모클래스인 Parent 이다.
-	Parent* p = new Child;
+	map<string, Object*> PrototypeObject;
 
-	p->Initialize();
-	p->Output();
+	Info.Number = 10;
+	PrototypeObject["Player"] = new Player(Info);
 
-	// 자식껄 쓸려면 형변환을 하여야 한다.
-	//((Child*)p)->Initialize();
-	//((Child*)p)->Output();
+	Object* pProtoObj = GetObject("Player");
 
-	// 또는 부모클래스 헤더의 함수에 virtual을 붙인다.
+	Object* pPlayer = nullptr;
 
-	*/
 
-	/*
-	Parent p; // 추상클래스는 개체화 시킬수 없어서 인스턴스화 못함.
+	if (pPlayer != nullptr)
+		pPlayer = pProtoObj->Clone();
 
-	p.Initialize();
-	p.Output();
-	*/ 
-	
-	
-	
 	return 0;
 
 }
 
+Object* GetObject(string _key)
+{
+	map<string, Object*> ::iterator iter = PrototypeObject.find(_key);
 
-
-
+	if (iter == PrototypeObject.end())
+		return nullptr;
+	else
+		return iter->second;
+}
+*/
 
 
 // ** 1. 정보은닉
@@ -152,7 +243,6 @@ return 0;
 }
 */
 
-
 // ** 5. 다형성
 /*
 	누가 될 수 있는 지는 모르지만 학생인데 검은 마스크일 수도 있고, 흰 마스크 일수도있고, 슬리퍼를
@@ -167,11 +257,205 @@ return 0;
 */
 
 // ** 7. 생성자 & 소멸자 & 복사 생성자
+/*
+	#include "Parent.h"
+#include "Child.h"
+#include "Bullet.h"
+
+class Object
+{
+private:
+
+public:
+	int Number;
+	char* Name;
+
+	// ** 사용자가 호출 하지 않아도 스스로 호출됨
+	// ** 클래스가 생성된 직후 호출
+	Object()
+	{
+		cout << "생성자" << endl;
+	};
+		
+	
+	// ** 사용자가 호출하는 시점에 호출됨
+	// ** 언제든지 호출이 된다. 
+	// ** 전달값의 개수와 자료형에 따라서 선택적(자동)으로 호출됨
+	Object(int _Number)
+	{
+		cout << "복사 생성자 : int" << endl;
+		Number = _Number;
+	};
+
+	Object(float _Number)
+	{
+		cout << "복사 생성자 : float" << endl;
+		Number = (int)_Number;
+	};
+
+	Object(char* _Name)
+	{
+		Name = _Name;
+	};
+
+	// ** 클래스가 삭제되기 직전
+	~Object()
+	{
+		cout << "소멸자" << endl;
+	};
+
+	/*
+	Object(const Object& _obj)
+	{
+		cout << "복사 생성자 : float" << endl;
+		
+	};
+	
+	
+Object(Object* _obj)
+{
+	Name = _obj->Name;
+
+};
+};
+
+
+int main(void)
+{
+
+	//Object o = Object();  // 생성자
+	//Object o = Object(10); // 이렇게 하면 복사생성자 
+	//Object o = Object(3.141592f); // float 으로 넣어서 매개변수 float인 복사생성자가 자동으로 호출됨
+
+	//cout << "Hello Wolrd!" << endl;
+
+	Object o1;
+
+	o1.Number = 10;
+	o1.Name = (char*)"홍길동";
+
+	Object o2 = Object(o1);
+
+	o1.Name = (char*)"임꺽정";
+
+	cout << o2.Number << endl;
+	cout << o2.Name << endl;
+
+
+
+
+	return 0;
+
+}
+*/
 
 // ** 8. 깊은복사 & 얕은복사
+/*
+	
+*/
+
 // ** 9. 오버로딩 & 오버라이딩
+/*
+	오버로딩: 전달값의 개수와 자료형에 따라서 선택적(자동)으로 호출되는 함수 (복사생성자와 같다.)
+			  오버로딩은 내꺼만 된다.
+
+	오버라이딩: 상속이 되있다. 오버라이딩은 상속이 아니면 안된다. 
+				부모 자식한테 다 있는경우 
+	
+	네임스페이스 점네개? ::
+
+class Object
+{
+public:
+	virtual void Output() // virtual 해야 override 쓸수 있음.
+	{
+		cout << "Object :" << endl;
+	}
+
+	void Output(string _str)
+	{
+		cout << "Object :" << _str << endl;
+	}
+};
+
+class AAA :public Object
+{
+public:
+	void Output() override
+	{
+		cout << "AAA" << endl;
+	}
+
+	void Output(string _str)
+	{
+		cout << "AAA" << _str << endl;
+	}
+};
+	
+*/
+
 // ** 10. 연산자 오버로딩
+/*
+
+struct tagInfo
+{
+	int Number;
+
+	tagInfo() {};
+	tagInfo() {};
+
+};
+
+class Object
+{
+private:
+	tagInfo Number;
+public:
+	
+	Object& operator+=(const Object& _Obj)
+	{
+		Info.Number += _Obj.Info.Number;
+		return this;
+	}
+	
+	Object& operator++()
+	{
+		Info.Number +=1;
+		return this;
+	}
+
+	
+
+	void Output()
+	{
+		cout << Info.Number << endl;
+	}
+public: 
+	Object() {};
+	Object(int _Number) : Number(_Number) {};
+	~Object() {};
+};
+
+int main(void)
+{
+	Object o1(tagInfo(10));
+	Object o2(o1);
+
+	o2 += o1;
+
+	++o2;
+	
+	o2.Output();
+	
+	return 0;
+}
+*/
+
 // ** 11. 포인터 (복습)
+/*
+	
+
+*/
 
 // ** 객체(Object)
 /*
@@ -314,6 +598,64 @@ int main(void)
 	BBB::Output();
 
 	return 0;
+}
+*/
+/*
+#include "Parent.h"
+#include "Child.h"
+#include "Bullet.h"
+
+const int ID_Child = 0;
+const int ID_Bullet = 1;
+
+
+int main(void)
+{
+	Parent* p[2];
+
+	p[ID_Child] = new Child;
+	p[ID_Bullet] = new Bullet;
+
+	for (int  i = 0; i < 2; ++i)
+	{
+		p[i]->Initialize();
+
+	}
+
+	while (true)
+	{
+		system("cls");
+
+	}
+
+
+
+	/*
+	// new Child 해도 기본적인 베이스는 부모클래스인 Parent 이다.
+	Parent* p = new Child;
+
+	p->Initialize();
+	p->Output();
+
+	// 자식껄 쓸려면 형변환을 하여야 한다.
+	//((Child*)p)->Initialize();
+	//((Child*)p)->Output();
+
+	// 또는 부모클래스 헤더의 함수에 virtual을 붙인다.
+
+	*/
+
+	/*
+	Parent p; // 추상클래스는 개체화 시킬수 없어서 인스턴스화 못함.
+
+	p.Initialize();
+	p.Output();
+	*/
+
+
+/*
+return 0;
+
 }
 */
 
