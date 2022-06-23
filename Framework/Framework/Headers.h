@@ -6,4 +6,6 @@
 #include <list>
 #include <map>
 
+#include"Enum.h"
+
 using namespace std;

@@ -1,15 +1,17 @@
-// ** Framework v1.0
+// ** Framework v1.1
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
 
 // ** Singleton
 /*
+
 	1. 어디서든 가져다 사용할 수 있다.
 	2. 데이터는 한군데에만 있어야한다.
 	3. 객체의 인스턴스가 오직 1개만 생성
 	4. 싱글톤은 하나만 만들어서 관리자로 사용
 	5. 기본적으로 외부에서 만들수 없어야 한다.
+
 */
 
 /*
