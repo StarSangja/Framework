@@ -7,6 +7,7 @@ void Bullet::Initialize()
 
 void Bullet::Update()
 {
+
 }
 
 void Bullet::Output()

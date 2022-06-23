@@ -1,156 +1,15 @@
-// ** Framework v0.3
+// ** Framework v0.4
 
 #include "Parent.h"
 #include "Child.h"
 #include "Bullet.h"
 
-
-/*
-
-struct tagInfo
-{
-	int Number;
-};
-
-class Object
-{
-protected:
-	tagInfo m_Info;
-private:
-
-public:
-	int Number;
-	char* Name;
-
-public:
-	virtual Object* Clone() = 0;
-	
-
-
-public:
-	// ** 사용자가 호출 하지 않아도 스스로 호출됨
-	// ** 클래스가 생성된 직후 호출
-	Object()
-	{
-		cout << "생성자" << endl;
-	};
-
-
-	// ** 사용자가 호출하는 시점에 호출됨
-	// ** 언제든지 호출이 된다. 
-	// ** 전달값의 개수와 자료형에 따라서 선택적(자동)으로 호출됨
-	Object(int _Number)
-	{
-		cout << "복사 생성자 : int" << endl;
-		Number = _Number;
-	};
-
-	Object(float _Number)
-	{
-		cout << "복사 생성자 : float" << endl;
-		Number = (int)_Number;
-	};
-
-	Object(char* _Name)
-	{
-		Name = _Name;
-	};
-
-	// ** 클래스가 삭제되기 직전
-	~Object()
-	{
-		cout << "소멸자" << endl;
-	};
-
-	
-	Object(const Object& _obj)
-	{
-		cout << "복사 생성자 : float" << endl;
-
-	};
-
-
-	Object(Object* _obj)
-	{
-	Name = _obj->Name;
-
-	};
-
-	Object(tagInfo _Info) : m_Info(_Info)
-	{
-
-	};
-};
-
-class Player : public Object
-{
-public:
-	virtual Object* Clone() override
-	{
-		return new Player(*this);
-	}
-
-	void Output()
-	{
-		cout << m_Info.Number << endl;
-	}
-
-public:
-	Player() {};
-	Player(tagInfo _Info) : Object(_Info) {  };
-	~Player() {};
-};
-
-Object* GetObject(string _key;
-
 int main(void)
 {
-	/*
-	tagInfo Info;
-	
-	AAA a[8];
 
-	for (int i = 0; i < 8; ++i)
-	{
-		Info.Number = 10;
-		a[i] = AAA(Info);
-	}
-
-	for (int i = 0; i < 8; ++i)
-	{
-		a[i].Output();
-	}
-	
-	
-	tagInfo Info;
-
-	map<string, Object*> PrototypeObject;
-
-	Info.Number = 10;
-	PrototypeObject["Player"] = new Player(Info);
-
-	Object* pProtoObj = GetObject("Player");
-
-	Object* pPlayer = nullptr;
-
-
-	if (pPlayer != nullptr)
-		pPlayer = pProtoObj->Clone();
 
 	return 0;
-
 }
-
-Object* GetObject(string _key)
-{
-	map<string, Object*> ::iterator iter = PrototypeObject.find(_key);
-
-	if (iter == PrototypeObject.end())
-		return nullptr;
-	else
-		return iter->second;
-}
-*/
 
 
 // ** 1. 정보은닉
@@ -453,7 +312,29 @@ int main(void)
 
 // ** 11. 포인터 (복습)
 /*
-	
+	1. * 데이터, & 주소반환 연산자 
+	2. 포인터변수 라면 [동적할당]
+	3. 클래스 & 구조체는 [.](점) 아니면 [->](화살표)로 접근한다.
+	4. [동적할당] 했다면 반드시 [할당해제]
+
+	메모리 관리 철저히 하기 
+
+*/
+
+// ** inline 빠르게 실행되게 도와주는 기능
+
+// ** const 사용 시기
+/*
+	const 상수화 키워드
+	실무에 다른사람들이 볼때 const 있으면 건들지 않게 알려주는 용도?
+*/
+
+// ** & 엔드연산자
+/*
+	비트연산자
+	레퍼런스 연산자
+	비교 연산자
+	주소반환 연산자
 
 */
 
@@ -661,4 +542,154 @@ return 0;
 
 #pragma endregion
 
+#pragma region Framework v0.3
+
+/*
+
+struct tagInfo
+{
+	int Number;
+};
+
+class Object
+{
+protected:
+	tagInfo m_Info;
+private:
+
+public:
+	int Number;
+	char* Name;
+
+public:
+	virtual Object* Clone() = 0;
+
+
+
+public:
+	// ** 사용자가 호출 하지 않아도 스스로 호출됨
+	// ** 클래스가 생성된 직후 호출
+	Object()
+	{
+		cout << "생성자" << endl;
+	};
+
+
+	// ** 사용자가 호출하는 시점에 호출됨
+	// ** 언제든지 호출이 된다.
+	// ** 전달값의 개수와 자료형에 따라서 선택적(자동)으로 호출됨
+	Object(int _Number)
+	{
+		cout << "복사 생성자 : int" << endl;
+		Number = _Number;
+	};
+
+	Object(float _Number)
+	{
+		cout << "복사 생성자 : float" << endl;
+		Number = (int)_Number;
+	};
+
+	Object(char* _Name)
+	{
+		Name = _Name;
+	};
+
+	// ** 클래스가 삭제되기 직전
+	~Object()
+	{
+		cout << "소멸자" << endl;
+	};
+
+
+	Object(const Object& _obj)
+	{
+		cout << "복사 생성자 : float" << endl;
+
+	};
+
+
+	Object(Object* _obj)
+	{
+	Name = _obj->Name;
+
+	};
+
+	Object(tagInfo _Info) : m_Info(_Info)
+	{
+
+	};
+};
+
+class Player : public Object
+{
+public:
+	virtual Object* Clone() override
+	{
+		return new Player(*this);
+	}
+
+	void Output()
+	{
+		cout << m_Info.Number << endl;
+	}
+
+public:
+	Player() {};
+	Player(tagInfo _Info) : Object(_Info) {  };
+	~Player() {};
+};
+
+Object* GetObject(string _key;
+
+int main(void)
+{
+	/*
+	tagInfo Info;
+
+	AAA a[8];
+
+	for (int i = 0; i < 8; ++i)
+	{
+		Info.Number = 10;
+		a[i] = AAA(Info);
+	}
+
+	for (int i = 0; i < 8; ++i)
+	{
+		a[i].Output();
+	}
+
+
+	tagInfo Info;
+
+	map<string, Object*> PrototypeObject;
+
+	Info.Number = 10;
+	PrototypeObject["Player"] = new Player(Info);
+
+	Object* pProtoObj = GetObject("Player");
+
+	Object* pPlayer = nullptr;
+
+
+	if (pPlayer != nullptr)
+		pPlayer = pProtoObj->Clone();
+
+	return 0;
+
+}
+
+Object* GetObject(string _key)
+{
+	map<string, Object*> ::iterator iter = PrototypeObject.find(_key);
+
+	if (iter == PrototypeObject.end())
+		return nullptr;
+	else
+		return iter->second;
+}
+*/
+
+#pragma endregion
 

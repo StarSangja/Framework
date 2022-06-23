@@ -7,6 +7,7 @@ void Child::Initialize()
 
 void Child::Update()
 {
+
 }
 
 void Child::Output()

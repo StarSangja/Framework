@@ -4,8 +4,10 @@
 class Bullet:public Parent
 {
 public:
-	void Initialize();
-	void Update();
-	void Output();
+	virtual void Initialize();
+
+	virtual void Update();
+
+	virtual void Output();
 };
 

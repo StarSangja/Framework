@@ -10,7 +10,6 @@ void Parent::Initialize()
 void Parent::Output()
 {	
 	cout << m_Number << endl;
-
 }
 */
 
