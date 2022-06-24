@@ -6,6 +6,10 @@
 #include <list>
 #include <map>
 
-#include"Enum.h"
-
 using namespace std;
+
+
+
+#include "Constant.h"
+#include "Enum.h"
+

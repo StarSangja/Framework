@@ -5,24 +5,21 @@ class SceneManager
 {
 private:
 	static SceneManager* Instance;
-
 public:
 	static SceneManager* GetInstance()
 	{
-		if (GetInstance == nullptr)
+		if (Instance == nullptr)
 			Instance = new SceneManager;
 
 		return Instance;
 	}
 private:
-	
-public:
-	void SetScene(SCENEID _SceneState);
 
+public:
+	void SetScene(int _SceneState);
 private:
-	SceneManager() {};
+	SceneManager();
 public:
-	~SceneManager() {};
-
+	~SceneManager();
 };
 
