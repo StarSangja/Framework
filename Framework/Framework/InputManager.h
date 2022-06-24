@@ -13,8 +13,12 @@ public:
 
 		return Instance;
 	}
+
 private:
 	DWORD Key;
+public:
+	DWORD GetKey()const { return Key; }
+
 public:
 	void InputKey();
 
