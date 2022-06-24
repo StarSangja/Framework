@@ -4,7 +4,6 @@
 #include "MainUpdate.h"
 
 
-
 int main(void)
 {
 	MainUpdate Main;
@@ -24,7 +23,6 @@ int main(void)
 			Main.Render();
 		}
 	}
-
 
 	return 0;
 }

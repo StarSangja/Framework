@@ -3,15 +3,12 @@
 #include "InputManager.h"
 
 Logo::Logo() : Scene("") { }
-
-Logo::~Logo()
-{
-}
+Logo::~Logo() { }
 
 
 void Logo::Initialize()
 {
-	str = "LOGO";
+	str = "Logo";
 }
 
 void Logo::Update()
@@ -31,4 +28,5 @@ void Logo::Render()
 
 void Logo::Release()
 {
+
 }

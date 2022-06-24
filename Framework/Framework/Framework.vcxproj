@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{de8a5255-fb7d-4801-9446-b1e7e965dc9b}</ProjectGuid>
+    <ProjectGuid>{DE8A5255-FB7D-4801-9446-B1E7E965DC9B}</ProjectGuid>
     <RootNamespace>Framework</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -142,7 +142,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Logo.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -163,7 +163,6 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Reference.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Stage.h" />
