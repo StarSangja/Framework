@@ -40,6 +40,15 @@
     <Filter Include="소스 파일\99.Manager\01. Scene\Stage">
       <UniqueIdentifier>{74df16ce-ffc1-47af-80cc-a417dc889edc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Object">
+      <UniqueIdentifier>{8f937670-f8c2-483d-a7d9-37e259f596b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Player">
+      <UniqueIdentifier>{0d065864-3ef4-4c31-a1d2-f916cb1496b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Object\Enemy">
+      <UniqueIdentifier>{a824fe8e-1413-4710-a65e-4eb631696b50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +74,15 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>소스 파일\99.Manager\01. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\02. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>소스 파일\02. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\02. Object\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +118,18 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>소스 파일\99.Manager\01. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>소스 파일\02. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>소스 파일\02. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\02. Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@
 #include "Stage.h"
 
 
-SceneManager* SceneManager::Instance = nullptr;
+SceneManager* SceneManager::Instance = nullptr; // 변수가 있으면  반드시 토기화를 해야한다.
 
 SceneManager::SceneManager() : SceneState(nullptr) { }
 SceneManager::~SceneManager() { Release(); }
@@ -14,11 +14,8 @@ SceneManager::~SceneManager() { Release(); }
 void SceneManager::SetScene(SCENEID _SceneState)
 {
 	if (SceneState != nullptr)
-	{
-		delete SceneState;
-		SceneState = nullptr;
-	}
-
+		::Safe_Delete(SceneState);
+	
 	switch (_SceneState)
 	{
 	case LOGO:
@@ -52,6 +49,5 @@ void SceneManager::Render()
 
 void SceneManager::Release()
 {
-	delete SceneState;
-	SceneState = nullptr;
+	::Safe_Delete(SceneState);
 }

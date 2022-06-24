@@ -1,10 +1,8 @@
 #pragma once
 #include "Headers.h"
-class Scene
-{
 
-protected:
-	string str;
+class Object
+{
 public:
 	virtual void Initialize()PURE;
 	virtual void Update()PURE;
@@ -12,8 +10,8 @@ public:
 	virtual void Release()PURE;
 
 public:
-	Scene();
-	Scene(string _str);
-	virtual ~Scene();
+	Object();
+	virtual ~Object();
+
 };
 

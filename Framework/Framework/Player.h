@@ -1,7 +1,7 @@
 #pragma once
-#include "Scene.h"
+#include "Object.h"
 
-class Stage : public Scene
+class Player :public Object
 {
 public:
 	virtual void Initialize()override;
@@ -9,7 +9,7 @@ public:
 	virtual void Render()override;
 	virtual void Release()override;
 public:
-	Stage();
-	virtual ~Stage();
+	Player();
+	virtual ~Player();
 };
 
