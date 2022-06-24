@@ -1,4 +1,4 @@
-// ** Framework v1.1 -1
+// ** Framework v2.1
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
@@ -22,14 +22,7 @@
 // 01000000 = 64
 // 10000000 = 128
 
-const DWORD KYE_UP = 1;
-const DWORD KYE_DOWN = 2;
-const DWORD KYE_LEFT = 4;
-const DWORD KYE_RIGHT = 8;
-const DWORD KYE_SPACE = 16;
-const DWORD KYE_ENTER = 32;
-const DWORD KYE_CTRL = 64;
-const DWORD KYE_ALT = 128;
+
 
 int main(void)
 {
