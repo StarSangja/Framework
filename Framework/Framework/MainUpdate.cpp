@@ -3,72 +3,49 @@
 #include "InputManager.h"
 
 MainUpdate::MainUpdate() : SceneState(0) { }
+
 MainUpdate::~MainUpdate() { Release(); }
 
 
 void MainUpdate::Initialize()
 {
-	SceneState = LOGO;
-	SceneManager::GetInstance()->SetScene(SceneState);
+	SceneManager::GetInstance()->SetScene(LOGO);
 }
 
 void MainUpdate::Update()
 {
 	InputManager::GetInstance()->InputKey();
-
+	SceneManager::GetInstance()->Update();
+	/*
 	DWORD dwKey = InputManager::GetInstance()->GetKey();
 
-	if (dwKey & KEY_UP)
-		cout << "KEY_UP" << endl;
+	if (dwKey & KYE_UP)
+		cout << "KYE_UP" << endl;
 
-	if (dwKey & KEY_DOWN)
-		cout << "KEY_DOWN" << endl;
+	if (dwKey & KYE_DOWN)
+		cout << "KYE_DOWN" << endl;
 
-	if (dwKey & KEY_LEFT)
-		cout << "KEY_LEFT" << endl;
+	if (dwKey & KYE_LEFT)
+		cout << "KYE_LEFT" << endl;
 
-	if (dwKey & KEY_RIGHT)
-		cout << "KEY_RIGHT" << endl;
+	if (dwKey & KYE_RIGHT)
+		cout << "KYE_RIGHT" << endl;
 
-	if (dwKey & KEY_SPACE)
-		cout << "KEY_SPACE" << endl;
+	if (dwKey & KYE_SPACE)
+		cout << "KYE_SPACE" << endl;
 
-	if (dwKey & KEY_ENTER)
-	{
-		//cout << "KEY_ENTER" << endl;
-		SceneManager::GetInstance()->SetScene(SceneState);
 
-		SceneState++;
+	if (dwKey & KYE_CTRL)
+		cout << "KYE_CTRL" << endl;
 
-		if (SceneState > EXIT)
-			SceneState = 0;
-
-	}
-
-	if (dwKey & KEY_CTRL)
-		cout << "KEY_CTRL" << endl;
-
-	if (dwKey & KEY_ALT)
-		cout << "KEY_ALT" << endl;
-
-	
-	++Count;
-	
-	//cout << Count << endl;
-
-	if (Count > 10)
-	{
-		Count = 0;
-		SceneState++;
-
-		SceneManager::GetInstance()->SetScene(SceneState);
-	}
-
+	if (dwKey & KYE_ALT)
+		cout << "KYE_ALT" << endl;
+		*/
 }
 
 void MainUpdate::Render()
 {
-
+	SceneManager::GetInstance()->Render();
 }
 
 void MainUpdate::Release()

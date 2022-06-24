@@ -1,20 +1,15 @@
-// ** Framework v2.2
+// ** Framework v2.3
 #define _CRT_SECURE_NO_WARNINGS
 #include "Headers.h"
 #include "MainUpdate.h"
-
-// ** Input
-/*
-	
-*/
 
 
 
 int main(void)
 {
 	MainUpdate Main;
-
 	Main.Initialize();
+
 	ULONGLONG Time = GetTickCount64();
 
 	while (true)
@@ -30,7 +25,6 @@ int main(void)
 		}
 	}
 
-	
 
 	return 0;
 }

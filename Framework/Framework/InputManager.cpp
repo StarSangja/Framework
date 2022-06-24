@@ -2,66 +2,35 @@
 
 InputManager* InputManager::Instance = nullptr;
 
-
-InputManager::InputManager() : Key(0) {}
-
-
-InputManager::~InputManager() {}
+InputManager::InputManager() : Key(0) { }
+InputManager::~InputManager() { }
 
 
 void InputManager::InputKey()
 {
-
 	Key = 0;
 
 	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W'))
-		Key |= KEY_UP;
+		Key |= KYE_UP;
 
-	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('S'))
-		Key |= KEY_DOWN;
+	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S'))
+		Key |= KYE_DOWN;
 
 	if (GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState('A'))
-		Key |= KEY_LEFT;
-	
+		Key |= KYE_LEFT;
+
 	if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D'))
-		Key |= KEY_RIGHT;
-		
-	if (GetAsyncKeyState(VK_SPACE))
-		Key |= KEY_SPACE;
-	
-	if (GetAsyncKeyState(VK_RETURN))
-		Key |= KEY_ENTER;
-		
-	if (GetAsyncKeyState(VK_CONTROL))	
-		Key |= KEY_CTRL;
-
-	if (GetAsyncKeyState(VK_MENU))
-		Key |= KEY_ALT;
-		
-}
-
-/*
-	if (GetAsyncKeyState(VK_UP))
-		cout << "KEY_UP" << endl;
-
-	if (GetAsyncKeyState(VK_UP))
-		cout << "KYE_DOWN" << endl;
-
-	if (GetAsyncKeyState(VK_LEFT))
-		cout << "KYE_LEFT" << endl;
-
-	if (GetAsyncKeyState(VK_RIGHT))
-		cout << "KYE_RIGHT" << endl;
+		Key |= KYE_RIGHT;
 
 	if (GetAsyncKeyState(VK_SPACE))
-		cout << "KYE_SPACE" << endl;
+		Key |= KYE_SPACE;
 
 	if (GetAsyncKeyState(VK_RETURN))
-		cout << "KYE_ENTER" << endl;
+		Key |= KYE_ENTER;
 
 	if (GetAsyncKeyState(VK_CONTROL))
-		cout << "KYE_CTRL" << endl;
+		Key |= KYE_CTRL;
 
 	if (GetAsyncKeyState(VK_MENU))
-		cout << "KYE_ALT" << endl;
-*/
+		Key |= KYE_ALT;
+}
