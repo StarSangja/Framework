@@ -12,8 +12,6 @@ SceneManager::~SceneManager()
 
 
 
-
-
 void SceneManager::SetScene(int _SceneState)
 {
 	switch (_SceneState)
@@ -35,5 +33,5 @@ void SceneManager::SetScene(int _SceneState)
 		break;
 	}
 
-	system("pause");
+	Sleep(500);
 }
